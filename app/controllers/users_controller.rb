@@ -8,14 +8,14 @@ class UsersController < ApplicationController
         render json: @users
     end
 
-    def show
+    def profile
         render json: @user
     end
 
     private
 
     def user_params
-        params.require(:users).permit(:name, :email, :password, :password_confirmation)
+        params.require(:user).permit(:name, :email, :password, :password_confirmation)
     end
 
     def find_user

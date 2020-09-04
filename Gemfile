@@ -44,3 +44,6 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 # JSON Web Token for Rails Auth
 gem 'jwt'
+
+# Stripe API library
+gem 'stripe'

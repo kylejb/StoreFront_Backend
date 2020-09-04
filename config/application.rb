@@ -23,6 +23,8 @@ module StoreFrontBackend
   class Application < Rails::Application
     config.load_defaults 6.0
     
+    config.force_ssl = true
+
     config.api_only = true
   end
 end

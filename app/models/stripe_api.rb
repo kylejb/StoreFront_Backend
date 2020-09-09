@@ -4,12 +4,12 @@ module StripeApi
     BASE_URL = 'https://api.stripe.com'
     Stripe.api_key = Rails.application.credentials.stripe_test_api[:secret]
 
-    def self.test_charge
+    def self.test_charge(amount, item_description)
         Stripe::Charge.create({
-            amount: 2000,
+            amount: amount,
             currency: 'usd',
             source: 'tok_visa',
-            description: 'My First Test Charge (created from API docs)',
+            description: item_description,
         })
     end
 end

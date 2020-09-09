@@ -7,12 +7,17 @@ description = ["Lorem Ipsum is simply dummy text of the printing and typesetting
 "You want to enjoy life, don't you? If you get your job done quickly and your job is fun, that's good isn't it? That's the purpose of life, partly. Your life is better.",
 "Use your feelings, Obi-Wan, and find him you will."]
 
+name = ["The Lord of the Rings: The Two Towers",
+"In the beginning, the Universe was created. This has made a lot of people very angry and been widely regarded as a bad move.",
+"Star Wars"
+]
+
 def create_items(name, url, cost, description, category)
     Item.create!(name: name, img_url: url, cost: cost, description: description, category: category)
 end
 
 (1..20).each do |i|
-    create_items("Name#{i}", "http://lorempixel.com/#{rand(1..10)}02/#{rand(1..10)}00/", (2.0/(rand(1..10) * 25)).floor(2), description.sample, "Category#{["Men", "Women", "Kids"].sample}")
+    create_items("#{name.sample}#{i}", "http://lorempixel.com/#{rand(1..10)}02/#{rand(1..10)}00/", (2.0/(rand(1..10) * 25)).floor(2), description.sample, "Category#{["Men", "Women", "Kids"].sample}")
 end
 
 User.create!(name: "Luis", email: "luis@email.com", password: "123", isAdmin: true)

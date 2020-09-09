@@ -47,3 +47,6 @@ gem 'jwt'
 
 # Stripe API library
 gem 'stripe'
+
+# Sample Data for testing in `seed.rb`
+gem 'faker'

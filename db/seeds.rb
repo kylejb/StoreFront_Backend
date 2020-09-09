@@ -1,4 +1,7 @@
+require 'faker'
+
 puts "Destroying seeded data..."
+
 PurchaseHistory.destroy_all
 User.destroy_all
 Item.destroy_all

@@ -10,10 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_09_03_192535) do
+ActiveRecord::Schema.define(version: 2020_09_10_001428) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "addresses", force: :cascade do |t|
+    t.string "first_addressline"
+    t.string "second_addressline"
+    t.string "city"
+    t.string "state"
+    t.string "zipcode"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
 
   create_table "items", force: :cascade do |t|
     t.string "name"
@@ -42,8 +52,11 @@ ActiveRecord::Schema.define(version: 2020_09_03_192535) do
     t.boolean "isAdmin", default: false, null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.bigint "address_id", null: false
+    t.index ["address_id"], name: "index_users_on_address_id"
   end
 
   add_foreign_key "purchase_histories", "items"
   add_foreign_key "purchase_histories", "users"
+  add_foreign_key "users", "addresses"
 end

@@ -8,12 +8,13 @@ class Api::V1::PaymentsController < ApplicationController
 
         # build payment object for Stripe API through 'payment' model
         #? confirm datatype of total when testing... likely an array of float (if value within array is string, convert to float)
-        total_payment = params[:payment][:order][0][:total][0]
-        user_payment_object = build_payment_object(total_payment)
+        total_payment = params[:payment][:total]
+        user_payment_object = Payment.build_payment_object(total_payment)
         # send request to Stripe API through 'stripe_api' model
         # https://stripe.com/docs/api/charges/object
+        
         stripe_response = StripeApi::test_charge(user_payment_object)
-
+        
         render json: { payment_confirmation: stripe_response["receipt_url"] }, status: :created
     end
 
@@ -21,7 +22,7 @@ class Api::V1::PaymentsController < ApplicationController
     private
 
     def payment_params
-        params.require(:payment).permit(order: [total: [], cart: [:id], billing: [:addressLine1, :addressLine2, :city, :state, :zipcode], shipping: [:addressLine1, :addressLine2, :city, :state, :zipcode]])
+        params.require(:payment).permit(:total, order: [cart: [:id], billing: [:first_addressline, :second_addressline, :city, :state, :zipcode], shipping: [:first_addressline, :second_addressline, :city, :state, :zipcode]])
     end
 
 end

@@ -16,7 +16,7 @@ def create_items(name, url, cost, description, category)
 end
 
 (1..20).each do |i|
-    create_items("#{name.sample}#{i}", "http://lorempixel.com/#{rand(1..10)}02/#{rand(1..10)}00/", (2.0/(rand(1..10) * 25)).floor(2), description.sample, "Category#{["Men", "Women", "Kids"].sample}")
+    create_items(Faker::Commerce.product_name, "http://lorempixel.com/#{rand(1..10)}02/#{rand(1..10)}00/", Faker::Commerce.price, Faker::Lorem.paragraph_by_chars, "Category#{["Men", "Women", "Kids"].sample}")
 end
 
 User.create!(name: "Luis", email: "luis@email.com", password: "123", isAdmin: true)

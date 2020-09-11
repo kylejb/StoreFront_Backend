@@ -16,7 +16,7 @@ def create_items(name, url, cost, description, category)
 end
 
 (1..20).each do |i|
-    create_items("#{name.sample}#{i}", "http://lorempixel.com/#{rand(1..10)}02/#{rand(1..10)}00/", (2.0/(rand(1..10) * 25)).floor(2), description.sample, "Category#{["Men", "Women", "Kids"].sample}")
+    create_items("#{name.sample}#{i}", "http://lorempixel.com/#{rand(1..10)}02/#{rand(1..10)}00/", ((rand(3..25)/3.13)).floor(2), description.sample, "Category#{["Men", "Women", "Kids"].sample}")
 end
 
 first_address = Address.create!(first_addressline: "123 Main St", second_addressline: "Self.Apt", city: "Flatiron", state: "this.state", zipcode: "11234")

@@ -19,8 +19,11 @@ end
     create_items(Faker::Commerce.product_name, "http://lorempixel.com/#{rand(1..10)}02/#{rand(1..10)}00/", Faker::Commerce.price, Faker::Lorem.paragraph_by_chars, "Category#{["Men", "Women", "Kids"].sample}")
 end
 
-User.create!(name: "Luis", email: "luis@email.com", password: "123", isAdmin: true)
-User.create!(name: "Kyle", email: "kyle@email.com", password: "password")
+first_address = Address.create!(first_addressline: "123 Main St", second_addressline: "Self.Apt", city: "Flatiron", state: "this.state", zipcode: "11234")
+second_address = Address.create!(first_addressline: "456 Main St", second_addressline: "Self.Apt", city: "Flatiron", state: "this.state", zipcode: "12345")
+
+User.create!(name: "Luis", email: "luis@email.com", password: "123", isAdmin: true, address: first_address)
+User.create!(name: "Kyle", email: "kyle@email.com", password: "password", address: second_address)
 
 PurchaseHistory.create!(user: User.last, item: Item.first, status: "purchased")
 

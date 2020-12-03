@@ -1,24 +1,20 @@
-# README
+<h3 align="center">Generic eCommerce Application</h3>  
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+<div align="center">
 
-Things you may want to cover:
+  ![Status](https://img.shields.io/badge/status-inactive-inactive.svg)
+  [![License](https://img.shields.io/github/license/kylejb/storefront_backend?style=plastic)](/LICENSE)
 
-* Ruby version
+</div>
 
-* System dependencies
+---
 
-* Configuration
+## About
 
-* Database creation
+A functioning prototype for a generic eCommerce website. Noteable features include a working shopping cart that processes payments through Stripe's API.
 
-* Database initialization
+[Click here](https://github.com/kylejb/storefront_frontend) to view the frontend repository.
 
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+## Authors
+- [Kyle Burda](https://github.com/kylejb)
+- [Luis Reyes](https://github.com/luisreyesxv)
